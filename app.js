@@ -10,10 +10,16 @@ const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const { mongoDbUrl } = require('./config/dev-db')
 const app = Express()
+const {select, timeFormater} = require('./helpers/handlebar-helper')
+
+
+var Handlebars = require("handlebars");
+var MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 
 
 mongoose.Promise = global.Promise
-mongoose.connect(mongoDbUrl).then(db=>{
+mongoose.connect(mongoDbUrl, { useNewUrlParser: true }).then(db=>{
     console.log(' Server Connected')
 })
 .catch(err=>{
@@ -29,8 +35,9 @@ app.use(Express.static(path.join(__dirname, 'public')))
 
 
 // Set view engine
-app.engine('handlebars', hsbr({defaultLayout: 'main'}));
+app.engine('handlebars', hsbr({defaultLayout: 'main', helpers:{select, timeFormater}}));
 app.set('view engine', 'handlebars');
+
 
 
 //Upload
@@ -46,6 +53,8 @@ app.use(bodyParser.json());
 //Method
 app.use(methodOverride('_method'));
 
+
+
 //Session
 app.use(session({
 
@@ -55,21 +64,22 @@ app.use(session({
 
 }));
 app.use(flash());
+// PASSPORT
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Local flash
 app.use((req, res, next)=>{
-res.locals.message = req.flash('Success_message')
-res.locals.error_message = req.flash('error_message')
-res.locals.error = req.flash('error_message')
+res.locals.message = req.flash('message')
+res.locals.home_message = req.flash('home_message')
+
 next()
 
 })
 
 
-// PASSPORT
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 const home = require('./routes/home/index');
 const admin = require('./routes/admin/index');
