@@ -1,14 +1,11 @@
-<h1>Edit Project</h1>
+<h1>Create Project</h1>
 
-{{!-- {{#each message}}
 
-<div id="snackbar">{{message}}</div>
-{{/each}} --}}
 
-<form action="/admin/project/edit/{{project._id}}?_method=PUT" method="post" enctype="multipart/form-data">
+<form action="/admin/create-project" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Title</label>
-        <input  name="title" type="text" class="form-control" id="title" placeholder="Enter title"  value="{{project.title}}" >
+        <input required name="title" type="text" class="form-control" id="title" placeholder="Enter title" >
     </div>
 
     <div class="form-group">
@@ -17,31 +14,27 @@
     </div>
 
     <div class="form-group">
-        <label for="category">Category</label>
+        <label for="status">Category</label>
         <select name="category" id="category" class="form-control">
-            
-            {{#select project.category}}
+
+
             {{#each categories}}
 
-            <option value="{{category}}">{{category}}</option>
+            <option value="{{id}}">{{name}}</option>
 
             {{/each}}
-            {{/select}}
+
         </select>
     </div>
 
 
     <div class="form-group">
         <label for="status">Status</label>
-        
         <select name="status" id="status" class="form-control">
-            {{#select project.status}}
             <option value="public">Public</option>
             <option value="private">Private</option>
             <option value="draft">Draft</option>
-            {{/select}}
         </select>
-        
     </div>
 
 
@@ -55,7 +48,7 @@
 
     <div class="form-group">
         <label for="body">Decription </label>
-        <textarea required  name="description" cols="30" rows="10" class="form-control" id="description" placeholder="Enter Description"> {{project.description}} </textarea>
+        <textarea required  name="description" cols="30" rows="10" class="form-control" id="description" placeholder="Enter Description"></textarea>
     </div>
 
 

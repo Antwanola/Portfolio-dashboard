@@ -5,11 +5,6 @@ const Schema = mongoose.Schema
 
 
 const project = new Schema({
-    category:{
-        type:Schema.Types.ObjectId,
-        ref: 'categories'
-    },
-
     title:{
     type: String, 
     required:true,
@@ -21,7 +16,7 @@ const project = new Schema({
     category:{
         type:String
     },
-    status:{
+    Status:{
         type:String,
         default:'Public'
     },
@@ -34,7 +29,7 @@ const project = new Schema({
         required:true
     },
     date:{
-        type:Date,
+        type: Date,
         default:Date.now()
     }
 })
