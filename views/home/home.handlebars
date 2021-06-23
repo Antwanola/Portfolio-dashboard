@@ -1,5 +1,10 @@
 <!doctype html>
 
+{{#if message}}
+
+<div id="snackbarHome">{{message}}</div>
+
+{{/if}}
         <!-- Start Page Wrapper  -->
         <main class="page-wrapper">
             <!-- Start Slider Area  -->
@@ -295,135 +300,38 @@
                         </div>
                     </div>
                     <div class="row">
+                        {{#each filteredProject}}
                         <!-- Start Single Portfolio  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
+                      <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
                             <div class="portfolio text-center">
                                 <div class="thumbnail-inner">
-                                    <div class="thumbnail image-8"></div>
-                                    <div class="bg-blr-image image-8"></div>
+                                    {{!-- <div class="thumbnail image-8"></div> --}}
+                                    {{!-- <div class="bg-blr-image ">
+                                        
+                                    </div> --}}
+                                     <img src="/uploads/{{file}}">
                                 </div>
                                 <div class="content">
                                     <div class="inner">
-                                        <p>Development</p>
-                                        <h4><a href="portfolio-details.html">Getting tickets to the big show</a>
+                                        <p>{{title}}</p>
+                                        <h4><a href="/project-detail/{{_id}}">{{description}}</a>
                                         </h4>
                                         <div class="portfolio-button">
-                                            <a class="rn-btn" href="portfolio-details.html">Case Study</a>
+                                            <a class="rn-btn" href="/project-detail/{{_id}}">Case Study</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- End Single Portfolio  -->
+                        
+                        {{/each}}
 
-                        <!-- Start Single Portfolio  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
-                            <div class="portfolio text-center">
-                                <div class="thumbnail-inner">
-                                    <div class="thumbnail image-7"></div>
-                                    <div class="bg-blr-image image-7"></div>
-                                </div>
-                                <div class="content">
-                                    <div class="inner">
-                                        <p>Development</p>
-                                        <h4><a href="portfolio-details.html">Getting tickets to the big show</a>
-                                        </h4>
-                                        <div class="portfolio-button">
-                                            <a class="rn-btn" href="portfolio-details.html">Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Portfolio  -->
-
-                        <!-- Start Single Portfolio  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
-                            <div class="portfolio text-center">
-                                <div class="thumbnail-inner">
-                                    <div class="thumbnail image-3"></div>
-                                    <div class="bg-blr-image image-3"></div>
-                                </div>
-                                <div class="content">
-                                    <div class="inner">
-                                        <p>Development</p>
-                                        <h4><a href="portfolio-details.html">Getting tickets to the big show</a>
-                                        </h4>
-                                        <div class="portfolio-button">
-                                            <a class="rn-btn" href="portfolio-details.html">Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Portfolio  -->
-                        <!-- Start Single Portfolio  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
-                            <div class="portfolio text-center">
-                                <div class="thumbnail-inner">
-                                    <div class="thumbnail image-4"></div>
-                                    <div class="bg-blr-image image-4"></div>
-                                </div>
-                                <div class="content">
-                                    <div class="inner">
-                                        <p>Development</p>
-                                        <h4><a href="portfolio-details.html">Getting tickets to the big show</a>
-                                        </h4>
-                                        <div class="portfolio-button">
-                                            <a class="rn-btn" href="portfolio-details.html">Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Portfolio  -->
-
-                        <!-- Start Single Portfolio  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
-                            <div class="portfolio text-center">
-                                <div class="thumbnail-inner">
-                                    <div class="thumbnail image-3"></div>
-                                    <div class="bg-blr-image image-3"></div>
-                                </div>
-                                <div class="content">
-                                    <div class="inner">
-                                        <p>Development</p>
-                                        <h4><a href="portfolio-details.html">Getting tickets to the big show</a>
-                                        </h4>
-                                        <div class="portfolio-button">
-                                            <a class="rn-btn" href="portfolio-details.html">Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Portfolio  -->
-
-                        <!-- Start Single Portfolio  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
-                            <div class="portfolio text-center">
-                                <div class="thumbnail-inner">
-                                    <div class="thumbnail image-2"></div>
-                                    <div class="bg-blr-image image-2"></div>
-                                </div>
-                                <div class="content">
-                                    <div class="inner">
-                                        <p>Development</p>
-                                        <h4><a href="portfolio-details.html">Getting tickets to the big show</a>
-                                        </h4>
-                                        <div class="portfolio-button">
-                                            <a class="rn-btn" href="portfolio-details.html">Case Study</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Portfolio  -->
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="view-more-btn mt--60 mt_sm--30 text-center">
-                                <a class="rn-button-style--2 btn_solid" href="#">View More</a>
+                                <a class="rn-button-style--2 btn_solid" href="/projects">View More</a>
                             </div>
                         </div>
                     </div>
@@ -444,60 +352,22 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!-- Start Blog Area  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="blog blog-style--1">
-                                <div class="thumbnail">
-                                    <a href="blog-details.html">
-                                        <img class="w-100" src="/images/blog/blog-01.jpg" alt="Blog Images" />
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <p class="blogtype">Development</p>
-                                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
-                                    </h4>
-                                    <div class="blog-btn">
-                                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Blog Area  -->
+                      
 
                         <!-- Start Blog Area  -->
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="blog blog-style--1">
                                 <div class="thumbnail">
-                                    <a href="blog-details.html">
-                                        <img class="w-100" src="/images/blog/blog-02.jpg" alt="Blog Images" />
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <p class="blogtype">Development</p>
-                                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
-                                    </h4>
-                                    <div class="blog-btn">
-                                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Blog Area  -->
-
-                        <!-- Start Blog Area  -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="blog blog-style--1">
-                                <div class="thumbnail">
-                                    <a href="blog-details.html">
+                                    <a href="/blog-detail">
                                         <img class="w-100" src="/images/blog/blog-03.jpg" alt="Blog Images" />
                                     </a>
                                 </div>
                                 <div class="content">
                                     <p class="blogtype">Development</p>
-                                    <h4 class="title"><a href="blog-details.html">Getting tickets to the big show</a>
+                                    <h4 class="title"><a href="/blog-detail">Getting tickets to the big show</a>
                                     </h4>
                                     <div class="blog-btn">
-                                        <a class="rn-btn text-white" href="blog-details.html">Read More</a>
+                                        <a class="rn-btn text-white" href="/blog-detail">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -508,51 +378,7 @@
             </div>
             <!-- End Blog Area  -->
 
-            <!-- Start Contact Area  -->
-            <div class="rn-contact-area rn-section-gap bg_color--1" id="contact">
-                <div class="contact-form--1">
-                    <div class="container">
-                        <div class="row row--35 align-items-start">
-                            <div class="col-lg-6 order-2 order-lg-1">
-                                <div class="section-title text-left mb--50 mb_sm--30 mb_md--30">
-                                    <h2 class="title">Hire Me.</h2>
-                                    <p class="description">I am available for freelance work. Connect with me via
-                                        phone:
-                                        <a href="tel:+8801923088574">01923 088574</a> or email:
-                                        <a href="mailto:admin@example.com"> admin@example.com</a> </p>
-                                </div>
-                                <div class="form-wrapper">
-                                    <form>
-                                        <label htmlFor="item01">
-                                            <input type="text" name="name" id="item01" placeholder="Your Name *" />
-                                        </label>
-
-                                        <label htmlFor="item02">
-                                            <input type="text" name="email" id="item02" placeholder="Your email *">
-                                        </label>
-
-                                        <label htmlFor="item03">
-                                            <input type="text" name="subject" id="item03" placeholder="Write a Subject">
-                                        </label>
-                                        <label htmlFor="item04">
-                                            <textarea type="text" id="item04" name="message"
-                                                placeholder="Your Message"></textarea>
-                                        </label>
-                                        <button class="rn-button-style--2 btn_solid" type="submit" value="submit"
-                                            name="submit" id="mc-embedded-subscribe">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 order-1 order-lg-2">
-                                <div class="thumbnail mb_md--30 mb_sm--30">
-                                    <img src="/images/about/about-9.jpg" alt="trydo" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Contact Area  -->
+           {{>home/contact-area}}
         </main>
         <!-- End Page Wrapper  -->
        

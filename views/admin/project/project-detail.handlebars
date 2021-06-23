@@ -1,0 +1,55 @@
+<h1>Project Details</h1>
+
+<div>
+<form action="/admin/project-details" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">first paragraph</label>
+        <input name="first-para" type="text" class="form-control" id="title" placeholder="Enter title" >
+    </div>
+
+    <div class="form-group">
+        <label for="file">File Upload</label>
+        <input type="file" name="file" class="form-control"  >
+    </div>
+{{!-- 
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" id="category" class="form-control">
+
+
+            {{#each categories}}
+
+            <option value="{{_id}}">{{category}}</option>
+
+            {{/each}}
+
+        </select>
+    </div> --}}
+<div class="form-group">
+        <label for="title">second para</label>
+        <textarea name="second-para" type="text" class="form-control" id="title" placeholder="Enter title" ></textarea>
+
+    </div>
+
+
+<div class="form-group">
+        <label for="title">third paragraph</label>
+        <textarea name="third-para" type="text" class="form-control" id="title" placeholder="Enter title" ></
+    </div>
+
+ 
+
+
+   
+
+    <div class="form-group">
+        <label for="body">Decription </label>
+        <textarea  name="description" cols="30" rows="10" class="form-control" id="description" placeholder="Enter Description"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create Project</button>
+
+
+</form>
+</div>

@@ -51,6 +51,9 @@ Index All JS
 
     $('.play__btn').yu2fvl();
 
+
+    
+
     /*--------------------------
         05. Slick Activation 
     ----------------------------*/
@@ -335,11 +338,23 @@ $(function() {
           $(formMessages).text('Oops! An error occured and your message could not be sent.');
         }
       });
+      
     });
-  
+   
   });
+//Snackbar
+  $( function myFunction() {
+    var x = document.getElementById("snackbarHome");
+    console.log(x)
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  })
   
-
-
-
 })(jQuery)
+
+
+
+
+
+
+

@@ -42,4 +42,13 @@
     }, 1000, 'easeInOutExpo');
     event.preventDefault();
   });
+
+
+  //snack bar
+  function myFunction() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 100000);
+  }
+  myFunction()
 })(jQuery); // End of use strict

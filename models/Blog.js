@@ -2,12 +2,14 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-
-
-const project = new Schema({
+const blog = new Schema({
     category:{
         type:Schema.Types.ObjectId,
         ref: 'categories'
+    },
+    user:{
+        type:Schema.Types.ObjectId,
+        ref: 'users'
     },
 
     title:{
@@ -33,23 +35,10 @@ const project = new Schema({
         type: String,
         required:true
     },
-    firstPara:{
-        type:String,
-
-    },
-    secondPara:{
-        type:String,
-        
-    },
-    thirdPara:{
-        type:String,
-        
-    },
     date:{
         type:Date,
         default:Date.now()
     },
-
     comment:[{
         type:Schema.Types.ObjectId,
         ref:'comments'
@@ -58,4 +47,11 @@ const project = new Schema({
 })
 
 
-module.exports = mongoose.model('projects', project)
+
+
+
+
+
+
+
+module.exports = mongoose.model('blogs', blog)
