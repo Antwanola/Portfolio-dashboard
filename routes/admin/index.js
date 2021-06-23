@@ -272,6 +272,10 @@ Project.findOne({_id:req.body.id}).then(project=>{
     })
 
 
+}).catch(err=>{
+    console.log(
+        err
+    );
 })
 })
 
@@ -284,12 +288,20 @@ router.delete('/comment/:id', (req,res)=>{
             if(err) console.log(err)
             res.redirect('/admin/comment')
         })
+    }).catch(err=>{
+        console.log(
+            err
+        );
     })
 })
 //Blog
 router.get('/blog-list', (req, res)=>{
 Blog.find({}).lean().then(blog=>{
 console.log(blog)
+}).catch(err=>{
+    console.log(
+        err
+    );
 })
     res.render('admin/blog/blog')
 })
@@ -298,6 +310,12 @@ console.log(blog)
 router.get('/create-blog', (req, res)=>{
     Blog.find({}).lean().then(blog=>{
     console.log(blog)
+    })
+
+    .catch(err=>{
+        console.log(
+            err
+        );
     })
         res.render('admin/blog/create-blog')
     })
@@ -345,6 +363,10 @@ else{
     })
     blog.save().then(saved=>{
         console.log(saved)
+    }).catch(err=>{
+        console.log(
+            err
+        );
     })
      
      

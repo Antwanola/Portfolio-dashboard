@@ -25,6 +25,10 @@ router.get('/', (req, res)=>{
      let antwan =  currentUri(req.originalUrl)
      res.locals.antwan = antwan
         res.render('./home/home', {filteredProject})
+    }).catch(err=>{
+        console.log(
+            err
+        );
     }) 
 })
 
@@ -33,6 +37,10 @@ router.get('/projects', (req, res)=>{
     Projects.find({}).lean().then(projects=>{
         console.log(req.originalUrl)
 res.render('home/projects', {projects})
+    }).catch(err=>{
+        console.log(
+            err
+        );
     })
     
 })
@@ -49,6 +57,10 @@ router.get('/project-detail/:id', (req, res)=>{
     //     filteredComment = comment.comment
     //   })
         res. render('home/project-detail', {project})
+    }).catch(err=>{
+        console.log(
+            err
+        );
     })
    
 })
@@ -83,7 +95,11 @@ router.post('/register', (req, res)=>{
             user.save().then(saved=>{
                  
               
-              })    
+              }).catch(err=>{
+                console.log(
+                    err
+                );
+            })    
         })
     })
     
@@ -112,6 +128,10 @@ passport.use(new LocalStrategy({usernameField: 'email'},
                         return done(null, false, {message:"The password is incorrect"})
                   }
               })
+        }).catch(err=>{
+            console.log(
+                err
+            );
         })
     }
   ))
